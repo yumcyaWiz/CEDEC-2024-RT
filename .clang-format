@@ -1,0 +1,13 @@
+BasedOnStyle: Google
+Standard: Cpp11
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 80
+
+AlignTrailingComments: true
+AllowShortBlocksOnASingleLine: true
+AlwaysBreakTemplateDeclarations: true
+BreakBeforeBraces: Allman
+Cpp11BracedListStyle: true
+PointerAlignment: Left
