@@ -234,10 +234,10 @@ INLINE DEVICE TangentBasis make_tangent_basis(
     return ret;
 }
 
-// Heitz, Eric. "A Low-Distortion Map Between Triangle and Square." (2019).
-// https://hal.science/hal-02073696v2/document
 INLINE DEVICE float2 warp_unit_triangle(float x, float y)
 {
+    // Heitz, Eric. "A Low-Distortion Map Between Triangle and Square." (2019).
+    // https://hal.science/hal-02073696v2/document
     if (y > x)
     {
         x *= 0.5f;
@@ -255,8 +255,7 @@ struct LightSample
 {
     float3 p = {0.0f, 0.0f, 0.0f};  // position
     float3 n = {0.0f, 0.0f, 0.0f};  // normal
-    // NOTE: use Triangle* instead?
-    int index = -1;  // triangle index
+    int index = -1;                 // triangle index
 };
 
 INLINE DEVICE LightSample sample_light(const TypedBuffer<Triangle>& triangles,
