@@ -138,6 +138,13 @@ ReSTIR DIの実装例です。
 
 ![](img/10.png)
 
+### Build Configurations
+|モード|CPUコード最適化|GPUコード最適化|
+|:--|:--|:--|
+|Debug||✔|
+|DebugGpu|||
+|RelWithDebInfo|✔|✔|
+
 ## Contact
 
 コードやスライドの内容に関して質問等がありましたら、以下までご連絡ください。
