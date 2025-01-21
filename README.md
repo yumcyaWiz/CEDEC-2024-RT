@@ -39,6 +39,14 @@ cd build
 make
 ```
 
+### Build Configurations
+
+|モード|CPUコード最適化|GPUコード最適化|
+|:--|:--|:--|
+|Debug||✔|
+|DebugGpu|||
+|RelWithDebInfo|✔|✔|
+
 ## Exampleについて
 
 非常に簡単なものから、ReSTIRの実装まで段階的に10個の実装例があります。
@@ -142,12 +150,13 @@ ReSTIR DIの実装例です。
 
 ![](img/10.png)
 
-### Build Configurations
-|モード|CPUコード最適化|GPUコード最適化|
-|:--|:--|:--|
-|Debug||✔|
-|DebugGpu|||
-|RelWithDebInfo|✔|✔|
+## Dependencies
+
+* [Orochi](https://github.com/GPUOpen-LibrariesAndSDKs/Orochi)
+* [HIP RT](https://gpuopen.com/hiprt/)
+* [GLFW](https://www.glfw.org/)
+* [stb](https://github.com/nothings/stb)
+* [tinyobjloader](https://github.com/tinyobjloader/tinyobjloader)
 
 ## Contact
 
