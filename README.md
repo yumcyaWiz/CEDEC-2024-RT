@@ -4,7 +4,7 @@
 
 CEDEC 2024 "[手軽に始めるGPUレイトレーシング！GPUプログラミングの基本からReSTIRまで](https://cedec.cesa.or.jp/2024/session/detail/s6607f1689d540/)" のコード例です。
 
-CEDILにアップロードされている[スライド](https://cedil.cesa.or.jp/cedil_sessions/view/3031)も合わせて参照ください。
+講演時の[スライド](https://github.com/yumcyaWiz/CEDEC-2024-RT/blob/main/docs/CEDEC2024_RT.pdf)もあわせて参照ください。
 
 ## ビルド方法
 
