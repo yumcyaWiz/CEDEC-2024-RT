@@ -1,5 +1,7 @@
 # CEDEC-2024-RT
 
+[English](https://github.com/yumcyaWiz/CEDEC-2024-RT/blob/main/README.md) | [日本語](https://github.com/yumcyaWiz/CEDEC-2024-RT/blob/main/README_JP.md)
+
 ![](img/10.png)
 
 This is the code example for CEDEC 2024 "[Easy Start with GPU Ray Tracing! From GPU Programming Basics to ReSTIR](https://cedec.cesa.or.jp/2024/session/detail/s6607f1689d540/)".
@@ -168,6 +170,7 @@ If you have any questions about the code or slide content, please contact:
 |Kenta Eto|Kenta.Eto@amd.com|
 |Atsushi Yoshimura|Atushi.Yoshimura@amd.com|
 
-Citations:
-[1] https://cedec.cesa.or.jp/2024/session/detail/s6607f1689d540/
-[2] https://github.com/yumcyaWiz/CEDEC-2024-RT/blob/main
+## Citations
+
+* [1] https://cedec.cesa.or.jp/2024/session/detail/s6607f1689d540/
+* [2] https://github.com/yumcyaWiz/CEDEC-2024-RT/blob/main
