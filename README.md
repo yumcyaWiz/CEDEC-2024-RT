@@ -2,13 +2,13 @@
 
 ![](img/10.png)
 
-CEDEC 2024 "[手軽に始めるGPUレイトレーシング！GPUプログラミングの基本からReSTIRまで](https://cedec.cesa.or.jp/2024/session/detail/s6607f1689d540/)" のコード例です。
+This is the code example for CEDEC 2024 "[Easy Start with GPU Ray Tracing! From GPU Programming Basics to ReSTIR](https://cedec.cesa.or.jp/2024/session/detail/s6607f1689d540/)".
 
-講演時の[スライド](https://github.com/yumcyaWiz/CEDEC-2024-RT/blob/main/docs/CEDEC2024_RT.pdf)もあわせて参照ください。
+Please also refer to the [slides](https://github.com/yumcyaWiz/CEDEC-2024-RT/blob/main/docs/CEDEC2024_RT.pdf) used during the presentation.
 
-## ビルド方法
+## How to Build
 
-まず依存ライブラリを落としてきます。
+First, download the dependent libraries.
 
 ```bash
 git submodule update --init --recursive
@@ -16,23 +16,23 @@ git submodule update --init --recursive
 
 ### Windows
 
-Premakeを実行してVisual Studioソリューションファイルを作成します。
+Run Premake to create Visual Studio solution files.
 
 ```bash
 ./premake5.exe vs2022
 ```
 
-`build/CEDEC_2024_RT.sln`をVisual Studioで開き、ビルドしてください。
+Open `build/CEDEC_2024_RT.sln` in Visual Studio and build.
 
 ### Linux
 
-Premakeを実行してMakefileを作成します。
+Run Premake to create a Makefile.
 
 ```bash
 ./premake5 gmake2
 ```
 
-`build`ディレクトリにおいて`make`を用いてビルドを実行します。
+Execute the build using `make` in the `build` directory.
 
 ```
 cd build
@@ -41,54 +41,55 @@ make
 
 ### Build Configurations
 
-|モード|CPUコード最適化|GPUコード最適化|
+|Mode|CPU Code Optimization|GPU Code Optimization|
 |:--|:--|:--|
 |Debug||✔|
 |DebugGpu|||
 |RelWithDebInfo|✔|✔|
 
-## Exampleについて
+## About Examples
 
-非常に簡単なものから、ReSTIRの実装まで段階的に10個の実装例があります。
+There are 10 implementation examples, ranging from very simple ones to ReSTIR implementation.
 
-|マウス操作|説明|
+|Mouse Operation|Description|
 |:--|:--|
-|`LMB`|カメラの回転|
-|`RMB`|カメラのズームイン/アウト|
-|`MMB`|カメラの移動|
+|`LMB`|Rotate camera|
+|`RMB`|Zoom in/out camera|
+|`MMB`|Move camera|
 
 ### 01_helloworld
 
-ピクセルをグラデーションで塗りつぶすだけの例です。
+An example that simply fills pixels with a gradient.
 
 ![](img/1.png)
 
 ### 02_triangle
 
-レイトレーシングで三角形を表示する例です。
+An example of displaying a triangle using ray tracing.
 
 ![](img/2.png)
 
 ### 03_cornellbox
 
-レイトレーシングでコーネルボックスを表示する例です。カメラからのレイがヒットした三角形の色をそのまま画面に表示します。
+An example of displaying a Cornell box using ray tracing. It directly displays the color of the triangle hit by the ray from the camera.
 
 ![](img/3.png)
 
 ### 04_ao
 
-シンプルなコーネルボックスのシーンで、レイトレーシングを使ったアンビエントオクルージョンを計算する例です。
+An example of calculating ambient occlusion using ray tracing in a simple Cornell box scene.
 
 ![](img/4.png)
 
 ### 05_ao_boundingbox
 
-より複雑なシーンで、アンビエントオクルージョンを計算します。AABBを使って早期に計算を打ち切るため、少し速くなります。05_ao_boundingbox.cuで `#define ENABLE_AABB_CULLING 0` を使うと、総当たりをしたときのパフォーマンスを見ることもできます。
+Calculates ambient occlusion in a more complex scene. It's slightly faster as it terminates calculations early using AABBs. You can see the performance of brute-force calculation by using `#define ENABLE_AABB_CULLING 0` in 05_ao_boundingbox.cu.
+
 <details>
 
-<summary>発展的Tips</summary>
+<summary>Advanced Tips</summary>
 
-`#define ENABLE_AABB_WARP_LEVEL_CULLING 1` を使うと、32個を一つにまとめたAABBでさらにもう一段階層的なカリングを行います。
+Using `#define ENABLE_AABB_WARP_LEVEL_CULLING 1` performs an additional level of hierarchical culling with AABBs that group 32 together.
 
 </details>
 
@@ -96,57 +97,57 @@ make
 
 ### 06_ao_hiprt
 
-レイとシーンの交差判定にHIPRTを使ったバージョンです。NVIDIA GPU, AMD GPU共に圧倒的に計算が速くなります。特にAMG GPUの場合、ハードウェアレイトレーシングの機能を活用することが出来ます。
+A version that uses HIPRT for ray-scene intersection tests. Calculation becomes overwhelmingly faster on both NVIDIA and AMD GPUs. Especially for AMD GPUs, it can utilize hardware ray tracing capabilities.
 
 ![](img/6.png)
 
 ### 07_pt
 
-パストレーシングの例です。
+An example of path tracing.
 
-|操作|説明|
+|Operation|Description|
 |:--|:--|
-|`A`|AccumulationのOn/Off|
-|`S`|スクリーンショットの保存|
+|`A`|Toggle Accumulation On/Off|
+|`S`|Save screenshot|
 
 ![](img/7.png)
 
 ### 08_nee
 
-Next Event Estimationを実装した例です。ナイーブなパストレーシングと比べて光源に到達する可能性が高まるのでノイズが減ります。
+An example implementing Next Event Estimation. Compared to naive path tracing, it has a higher chance of reaching light sources, thus reducing noise.
 
-|操作|説明|
+|Operation|Description|
 |:--|:--|
-|`A`|AccumulationのOn/Off|
-|`S`|スクリーンショットの保存|
+|`A`|Toggle Accumulation On/Off|
+|`S`|Save screenshot|
 
 ![](img/8.png)
 
 ### 09_ris
 
-Resampled Importance Sampling (RIS)の実装例です。
+An implementation example of Resampled Importance Sampling (RIS).
 
-|操作|説明|
+|Operation|Description|
 |:--|:--|
-|`1`|RISのOn/Off|
-|`2`|Target functionの評価にVisibilityを含める/含めない|
-|`A`|AccumulationのOn/Off|
-|`S`|スクリーンショットの保存|
+|`1`|Toggle RIS On/Off|
+|`2`|Include/Exclude Visibility in Target function evaluation|
+|`A`|Toggle Accumulation On/Off|
+|`S`|Save screenshot|
 
 ![](img/9.png)
 
 ### 10_restir_di
 
-ReSTIR DIの実装例です。
+An implementation example of ReSTIR DI.
 
-|操作|説明|
+|Operation|Description|
 |:--|:--|
-|`1`|Temporal ResamplingのOn/Off|
-|`2`|Spatial ResamplingのOn/Off|
-|`3`|Target functionの評価にVisibilityを含める/含めない|
-|`4`|Visibility reuseのOn/Off|
-|`A`|AccumulationのOn/Off|
-|`S`|スクリーンショットの保存|
+|`1`|Toggle Temporal Resampling On/Off|
+|`2`|Toggle Spatial Resampling On/Off|
+|`3`|Include/Exclude Visibility in Target function evaluation|
+|`4`|Toggle Visibility reuse On/Off|
+|`A`|Toggle Accumulation On/Off|
+|`S`|Save screenshot|
 
 ![](img/10.png)
 
@@ -160,9 +161,13 @@ ReSTIR DIの実装例です。
 
 ## Contact
 
-コードやスライドの内容に関して質問等がありましたら、以下までご連絡ください。
+If you have any questions about the code or slide content, please contact:
 
 |Name|Address|
 |:--|:--|
-|江藤 健汰|Kenta.Eto@amd.com|
-|吉村 篤|Atushi.Yoshimura@amd.com|
+|Kenta Eto|Kenta.Eto@amd.com|
+|Atsushi Yoshimura|Atushi.Yoshimura@amd.com|
+
+Citations:
+[1] https://cedec.cesa.or.jp/2024/session/detail/s6607f1689d540/
+[2] https://github.com/yumcyaWiz/CEDEC-2024-RT/blob/main
