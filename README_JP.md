@@ -6,6 +6,11 @@ CEDEC 2024 "[手軽に始めるGPUレイトレーシング！GPUプログラミ�
 
 講演時の[スライド](https://github.com/yumcyaWiz/CEDEC-2024-RT/blob/main/docs/CEDEC2024_RT.pdf)もあわせて参照ください。
 
+## Requirements
+
+* AMD GPU or NVIDIA GPU
+* CUDA SDK (>= 12.2) (NVIDIA GPUの場合)
+
 ## ビルド方法
 
 まず依存ライブラリを落としてきます。
@@ -22,10 +27,10 @@ Premakeを実行してVisual Studioソリューションファイルを作成し
 ./premake5.exe vs2022
 ```
 
-NVIDIA ユーザーのみ対象です。
+NVIDIAユーザーの場合は`--nvidia`オプションを追加してください。
 
 ```bash
-./premake5.exe vs2022 --nvidia
+./premake5.exe --nvidia vs2022
 ```
 
 `build/CEDEC_2024_RT.sln`をVisual Studioで開き、ビルドしてください。
@@ -36,6 +41,11 @@ Premakeを実行してMakefileを作成します。
 
 ```bash
 ./premake5 gmake2
+```
+
+NVIDIAユーザーの場合は`--nvidia`オプションを追加してください。
+```bash
+./premake5 --nvidia gmake2
 ```
 
 `build`ディレクトリにおいて`make`を用いてビルドを実行します。

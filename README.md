@@ -8,6 +8,11 @@ This is the code example for CEDEC 2024 "[Easy Start with GPU Ray Tracing! From 
 
 Please also refer to the [slides](https://github.com/yumcyaWiz/CEDEC-2024-RT/blob/main/docs/CEDEC2024_RT.pdf) used during the presentation.
 
+## Requirements
+
+* AMD GPU or NVIDIA GPU
+* CUDA SDK (>= 12.2) (For NVIDIA GPU users)
+
 ## How to Build
 
 First, download the dependent libraries.
@@ -24,10 +29,10 @@ Run Premake to create Visual Studio solution files.
 ./premake5.exe vs2022
 ```
 
-For NVIDIA users only.
+For NVIDIA users, add `--nvidia` option when running premake.
 
 ```bash
-./premake5.exe vs2022 --nvidia
+./premake5.exe --nvidia vs2022
 ```
 
 Open `build/CEDEC_2024_RT.sln` in Visual Studio and build.
@@ -38,6 +43,12 @@ Run Premake to create a Makefile.
 
 ```bash
 ./premake5 gmake2
+```
+
+For NVIDIA users, add `--nvidia` option when running premake.
+
+```bash
+./premake5.exe --nvidia gmake2
 ```
 
 Execute the build using `make` in the `build` directory.
