@@ -24,6 +24,12 @@ Run Premake to create Visual Studio solution files.
 ./premake5.exe vs2022
 ```
 
+For NVIDIA users only.
+
+```bash
+./premake5.exe vs2022 --nvidia
+```
+
 Open `build/CEDEC_2024_RT.sln` in Visual Studio and build.
 
 ### Linux

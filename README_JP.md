@@ -22,6 +22,12 @@ Premakeを実行してVisual Studioソリューションファイルを作成し
 ./premake5.exe vs2022
 ```
 
+NVIDIA ユーザーのみ対象です。
+
+```bash
+./premake5.exe vs2022 --nvidia
+```
+
 `build/CEDEC_2024_RT.sln`をVisual Studioで開き、ビルドしてください。
 
 ### Linux
